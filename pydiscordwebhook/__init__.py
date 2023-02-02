@@ -1,1 +1,1 @@
-from main import Message, DiscordHook
+from pydiscordwebhook.main import Message, DiscordHook
