@@ -2,13 +2,13 @@ import urllib.request
 import json
 
 class Message:
-    def __init__(self, content = None, tts = False, username = None, avatar_url = None):
+    def __init__(self, content: str|None = None, tts: bool = False, username: str|None = None, avatar_url: str|None = None) -> None:
         self.content = content
         self.tts = tts
         self.username = username
         self.avatar_url = avatar_url
     
-    def modify(self, content = None, tts = False, username = None, avatar_url = None):
+    def modify(self, content: str|None = None, tts: bool = False, username: str|None = None, avatar_url: str|None = None) -> None:
         self.content = content
         self.tts = tts
         self.username = username
@@ -29,10 +29,10 @@ class DiscordHook:
         self.id = id
         self.token = token
 
-    def url(self):
+    def url(self) -> str:
         return "https://discord.com/api/webhooks/"+self.id+"/"+self.token
 
-    def message(self, content):
+    def message(self, content: str) -> bool:
         try:
             req = urllib.request.Request(self.url(), bytes(json.dumps({"content":content}),"utf8"), method="POST")
             req.add_header("User-Agent", "Mozilla/5.0")
@@ -44,7 +44,7 @@ class DiscordHook:
         except:
             return False
 
-    def send(self, msg):
+    def send(self, msg: Message) -> bool:
         try:
             req = urllib.request.Request(self.url(), bytes(json.dumps(msg.toJSON()),"utf8"), method="POST")
             req.add_header("User-Agent", "Mozilla/5.0")
