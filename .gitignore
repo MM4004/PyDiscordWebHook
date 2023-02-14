@@ -2,3 +2,5 @@ pydiscordwebhook.egg-info
 dist
 build.bat
 upload.bat
+test.py
+*\__pycache__

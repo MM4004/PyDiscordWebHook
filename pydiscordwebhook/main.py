@@ -21,6 +21,9 @@ class Message:
             return False
         self.embeds.append(embed)
         return True
+    
+    def clear_embeds(self):
+        self.embeds.clear()
 
     def toJSON(self):
         result = {"tts":self.tts}
