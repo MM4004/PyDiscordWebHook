@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="pydiscordwebhook",
-    version='0.1.2',
+    version='0.1.3',
     author="MM4004",
     description='Library for python to send messages on discord',
     packages=find_packages(),
