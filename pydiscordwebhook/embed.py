@@ -1,10 +1,16 @@
 class EmbedFooter:
     def __init__(self, text: str|None = None, icon_url: str|None = None, proxy_icon_url: str|None = None):
+        if text != None:
+            if len(text) > 2048:
+                raise ValueError("Invalid string size")
         self.text = text
         self.icon_url = icon_url
         self.proxy_icon_url = proxy_icon_url
 
     def modify(self, text: str|None = None, icon_url: str|None = None, proxy_icon_url: str|None = None):
+        if text != None:
+            if len(text) > 2048:
+                raise ValueError("Invalid string size")
         if isinstance(text, str):
             self.text = text
         if isinstance(icon_url, str):
@@ -24,12 +30,18 @@ class EmbedFooter:
     
 class EmbedAuthor:
     def __init__(self, name: str, url:str|None = None, icon_url:str|None = None, proxy_icon_url:str|None = None):
+        if name != None:
+            if len(name) > 256:
+                raise ValueError("Invalid string size")
         self.name = name
         self.url = url
         self.icon_url = icon_url
         self.proxy_icon_url = proxy_icon_url
     
     def modify(self, name: str|None = None, url:str|None = None, icon_url:str|None = None, proxy_icon_url:str|None = None):
+        if name != None:
+            if len(name) > 256:
+                raise ValueError("Invalid string size")
         if name != None:
             self.name = name
         if url != None:
@@ -94,6 +106,12 @@ class EmbedImage:
 
 class Embed:
     def __init__(self, title: str|None = None, description: str|None = None, url: str|None = None, color: int = 0x000000, image:EmbedImage|None = None, author:EmbedAuthor|None = None):
+        if(title != None):
+            if len(title) > 256:
+                raise ValueError("Invalid string size")
+        if(description != None):
+            if len(description) > 4096:
+                raise ValueError("Invalid string size")
         self.title = title
         self.description = description
         self.url = url
@@ -106,6 +124,12 @@ class Embed:
         self.footer = value
 
     def modify(self, title: str|None = None, description: str|None = None, url: str|None = None, color: int|None = None, image:EmbedImage|None = None, author:EmbedAuthor|None = None):
+        if(title != None):
+            if len(title) > 256:
+                raise ValueError("Invalid string size")
+        if(description != None):
+            if len(description) > 4096:
+                raise ValueError("Invalid string size")
         if title != None:
             self.title = title
         if description != None:
